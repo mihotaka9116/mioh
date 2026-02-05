@@ -217,6 +217,52 @@ section:nth-of-type(even) .content {
   .mainvisual-text { font-size: 30px; letter-spacing: 0.3em; }
 }
 
+/* --- 商品アイテムの浮かび上がる演出 --- */
+.product-item {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  /* ↓ 動きを滑らかにする設定 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* マウスを乗せた時（ホバー）の動き */
+.product-item:hover {
+  transform: translateY(-10px); /* 上に10px浮かび上がる */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* 影をつけて浮遊感を出す */
+}
+
+/* 画像自体のズーム演出 */
+.product-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* 枠からはみ出た画像は見せない */
+}
+
+.product-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  
+  /* ↓ 画像の変化も滑らかにする */
+  transition: transform 0.5s ease;
+}
+
+/* マウスを乗せた時に画像を少しだけ大きくする */
+.product-item:hover .product-img img {
+  transform: scale(1.1); /* 1.1倍に拡大 */
+}
+
 html {
   scroll-behavior: smooth; /* スムーズスクロールを有効化 */
   scroll-padding-top: 90px; /* ヘッダーに被らないように調整 */
