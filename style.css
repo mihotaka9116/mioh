@@ -1,164 +1,91 @@
 @charset "UTF-8";
 
 /* --- 1. Base Styles --- */
-html {
-  font-size: 100%;
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  color: #696969;
-  font-family: 'Crimson Text', serif;
-  line-height: 2.0;
-  background-color: #fafafa;
-  margin: 0;
-}
+html { font-size: 100%; scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { color: #696969; font-family: 'Crimson Text', serif; line-height: 2.0; background-color: #fafafa; margin: 0; }
 
 /* --- 2. Header --- */
-#header {
-  width: 100%;
-  background-color: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #eee;
-}
-
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.site-title a {
-  font-size: 1.5rem;
-  letter-spacing: 0.2em;
-  font-weight: 700;
-  text-decoration: none;
-  color: #333;
-}
-
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-}
-
-header nav ul li a {
-  text-decoration: none;
-  color: inherit;
-}
+#header { width: 100%; background-color: #ffffff; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #eee; }
+.header-inner { max-width: 1200px; margin: 0 auto; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
+.site-title a { font-size: 1.5rem; letter-spacing: 0.2em; font-weight: 700; text-decoration: none; color: #333; }
+header nav ul { list-style: none; display: flex; gap: 30px; margin: 0; }
+header nav ul li a { text-decoration: none; color: inherit; }
 
 /* --- 3. Opening Mask --- */
-.opening-mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #2d2d2d;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: curtainUp 1.0s cubic-bezier(0.65, 0, 0.35, 1) 1.0s forwards;
-}
-
-.mask-text {
-  color: #fff;
-  font-size: 3rem;
-  letter-spacing: 0.5em;
-  animation: fadeOut 0.5s forwards 0.5s;
-}
-
-@keyframes curtainUp {
-  to { transform: translateY(-100%); visibility: hidden; }
-}
-@keyframes fadeOut {
-  to { opacity: 0; }
-}
+.opening-mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #2d2d2d; z-index: 9999; display: flex; justify-content: center; align-items: center; animation: curtainUp 1.0s cubic-bezier(0.65, 0, 0.35, 1) 1.0s forwards; }
+.mask-text { color: #fff; font-size: 3rem; letter-spacing: 0.5em; animation: fadeOut 0.5s forwards 0.5s; }
+@keyframes curtainUp { to { transform: translateY(-100%); visibility: hidden; } }
+@keyframes fadeOut { to { opacity: 0; } }
 
 /* --- 4. Mainvisual --- */
-#mainvisual {
-  width: 100%;
-  height: 60vh;
-  min-height: 400px;
-  background-image: url("jyuujilogo.svg");
-  background-repeat: repeat;
-  background-size: 100px;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.mainvisual-text {
-  font-size: 70px;
-  font-weight: 300;
-  color: #696969;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-  letter-spacing: 0.8em;
-  padding-left: 0.8em;
-  opacity: 0;
-  animation: bounceUp 1.2s ease-out 2.2s forwards;
-}
-
-@keyframes bounceUp {
-  0% { opacity: 0; transform: translateY(100px); }
-  60% { opacity: 1; transform: translateY(-20px); }
-  80% { transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+#mainvisual { width: 100%; height: 60vh; min-height: 400px; background-image: url("jyuujilogo.svg"); background-repeat: repeat; background-size: 100px; background-position: center; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+.mainvisual-text { font-size: 70px; font-weight: 300; color: #696969; text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); letter-spacing: 0.8em; padding-left: 0.8em; opacity: 0; animation: bounceUp 1.2s ease-out 2.2s forwards; }
+@keyframes bounceUp { 0% { opacity: 0; transform: translateY(100px); } 60% { opacity: 1; transform: translateY(-20px); } 80% { transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
 
 /* --- 5. Content Layout (Index Page) --- */
-.container { 
-  max-width: 1100px; 
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.content { display: flex; align-items: center; gap: 8%; padding: 100px 0; }
+section:nth-of-type(even) .content { flex-direction: row-reverse; }
+.content .img, .content .text { width: 50%; }
+
+/* ★ここがトップページの画像を小さくする設定です */
+#products .img img { 
+  width: 60%; /* 100%から60%に縮小 */
+  max-width: 300px; /* 最大サイズを制限 */
   margin: 0 auto; 
-  padding: 0 40px; 
 }
 
-.content { 
-  display: flex; 
-  align-items: center; 
-  gap: 8%; 
-  padding: 100px 0; 
-}
-
-section:nth-of-type(even) .content { 
-  flex-direction: row-reverse; 
-}
-
-.content .img, .content .text { 
-  width: 50%; 
-}
-
-.img img { 
-  width: 100%; 
-  display: block; 
-  height: auto; 
-}
-
+.img img { width: 100%; display: block; height: auto; }
 .section-bg-gray { background-color: #f2f2f2; }
 .section-bg-white { background-color: #ffffff; }
 .section-bg-beige { background-color: #f9f5ed; }
+.section-title { font-size: 1.8rem; margin-bottom: 5px; color: #333; }
+.section-title-en { display: block; color: #a0a0a0; font-style: italic; margin-bottom: 30px; }
 
-.section-title { 
-  font-size: 1.8rem; 
-  margin-bottom: 5px; 
-  color: #333; 
+/* --- 6. Products Page (統合修正版) --- */
+.page-title { text-align: center; font-size: 2.5rem; margin: 60px 0 10px; }
+.page-intro { text-align: center; max-width: 800px; margin: 0 auto 60px; color: #696969; line-height: 1.8; }
+
+.product-grid {
+  display: flex; /* gridより安定するflexを採用 */
+  flex-wrap: wrap;
+  gap: 40px 4%;
+  margin-bottom: 80px;
 }
 
-.section-title-en { 
-  display: block; 
-  color: #a0a0a0; 
-  font-style: italic; 
-  margin-bottom: 30px; 
+.product-item {
+  width: 48%; /* PCで2列を確定 */
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* --- 6. Products Page (統合・修正版) --- */
+/* 画像枠を揃えて2段目の崩れを物理的に防ぐ */
+.product-img {
+  width: 100%;
+  height: 300px; /* 高さを300pxに固定 */
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* 画像を切らずに収める */
+}
+
+@media (max-width: 767px) {
+  .product-item { width: 100%; } /* スマホでは1列 */
+}
+
+.product-detail { text-align: center; }
+.back-to-home { text-align: center; margin: 50px 0 100px; }
+.btn { display: inline-block; padding: 10px 30px; background-color: #696969; color: #fff; text-decoration: none; }
+
+/* --- 7. Footer --- */
+#footer { text-align: center; padding: 60px 0; background: #fff; border-top: 1px solid #eee; }
