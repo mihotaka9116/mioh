@@ -267,3 +267,59 @@ html {
   scroll-behavior: smooth; /* スムーズスクロールを有効化 */
   scroll-padding-top: 90px; /* ヘッダーに被らないように調整 */
 }
+
+/* --- Concept画像のサイズと演出の統一 --- */
+
+/* Conceptセクションの画像の外枠をProductsと合わせる */
+#concept .img {
+  width: 100%;
+  max-width: 400px; /* 大きすぎないように制限 */
+  margin: 0 auto;
+  aspect-ratio: 1 / 1; /* 正方形に固定 */
+  overflow: hidden;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* 浮かび上がる演出の準備 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Concept画像そのものの設定 */
+#concept .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 画像を枠内に綺麗に収める */
+  padding: 40px; /* ロゴの周りに少し余白を作る（お好みで調整） */
+  transition: transform 0.5s ease;
+}
+
+/* マウスを乗せた時の浮かび上がる動き（Productsと統一） */
+#concept .img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+#concept .img:hover img {
+  transform: scale(1.1); /* 画像のズーム */
+}
+
+/* --- トップページのレイアウト微調整（中央寄せ） --- */
+#concept .content {
+  display: flex;
+  align-items: center;
+  gap: 8%;
+}
+
+@media (max-width: 768px) {
+  #concept .content {
+    flex-direction: column;
+    text-align: center;
+  }
+  #concept .img {
+    margin-bottom: 30px;
+  }
+}
