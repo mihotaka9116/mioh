@@ -2,69 +2,80 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>Products | MIOH</title>
+  <title>MIOH | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="sub-page">
+<body>
+  <div class="opening-mask">
+    <div class="mask-text">MIOH</div>
+  </div>
+
   <header id="header">
     <div class="header-inner">
       <h1 class="site-title"><a href="index.html">MIOH</a></h1>
       <nav>
         <ul>
-          <li><a href="index.html#concept">Concept</a></li>
-          <li><a href="index.html#work">Work</a></li>
+          <li><a href="#concept">Concept</a></li>
+          <li><a href="#work">Work</a></li>
           <li><a href="products.html">Products</a></li>
-          <li><a href="mailto:xxxxx@xxx.xxx">Contact</a></li>
+          <li><a href="mailto:your-email@example.com">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="products-list-section">
-      <h2 class="page-title">Products</h2>
-      <p class="page-intro">Tシャツやマグカップなど、日常で使えるグッズを展開しています。</p>
+  <main>
+    <section id="mainvisual">
+      <div class="mainvisual-text">MIOH</div>
+    </section>
 
-      <div class="product-grid">
-        
-        <div class="product-item">
-          <div class="product-img"><img src="logoshirt.png" alt="T-shirt"></div>
-          <div class="product-detail">
-            <h3>T-shirt</h3>
-            <p>デザインしたロゴマークをあしらったTシャツです。</p>
+    <section id="concept" class="section-bg-white">
+      <div class="container">
+        <div class="content">
+          <div class="img">
+            <img src="jyuujilogo.svg" alt="Concept Image">
+          </div>
+          <div class="text">
+            <h2 class="section-title">Concept</h2>
+            <span class="section-title-en">Design for your mind.</span>
+            <p>目に見えない想いや空気感を、形にする。シンプルでありながら、心に深く残るデザインを追求しています。</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="product-item">
-          <div class="product-img"><img src="shirtmodel.png" alt="T-shirt"></div>
-          <div class="product-detail">
-            <h3>T-shirt (Model)</h3>
-            <p>着心地の良いオーガニックコットンを使用しました。</p>
+    <section id="work" class="section-bg-gray">
+      <div class="container">
+        <div class="content">
+          <div class="img">
+            <img src="img/work.jpg" alt="Work Image">
+          </div>
+          <div class="text">
+            <h2 class="section-title">Work</h2>
+            <span class="section-title-en">Recent Projects</span>
+            <p>ロゴデザイン、グラフィック制作、WEBデザインなど。多岐にわたる制作事例をご紹介します。</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="product-item">
-          <div class="product-img"><img src="logomag.png" alt="Mag"></div>
-          <div class="product-detail">
-            <h3>MAG CUP</h3>
-            <p>カラフルなマグカップです。</p>
+    <section id="products" class="section-bg-beige">
+      <div class="container">
+        <div class="content">
+          <div class="img">
+            <img src="jyuujilogo.svg" alt="Products Logo">
+          </div>
+          <div class="text">
+            <h2 class="section-title">Products</h2>
+            <span class="section-title-en">Original Goods</span>
+            <p>日常を彩るオリジナルグッズを展開しています。Tシャツやマグカップなど、こだわりのアイテムをご覧ください。</p>
+            <a href="products.html" class="btn" style="margin-top: 20px;">View Products</a>
           </div>
         </div>
-
-        <div class="product-item">
-          <div class="product-img"><img src="logomagsoto.png" alt="Mag"></div>
-          <div class="product-detail">
-            <h3>MAG CUP</h3>
-            <p>白地にピンクの色が映えるマグカップです。</p>
-          </div>
-        </div>
-
-      </div> <div class="back-to-home">
-        <a href="index.html" class="btn">Back to Home</a>
       </div>
     </section>
   </main>
