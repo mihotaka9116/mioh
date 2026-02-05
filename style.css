@@ -27,48 +27,42 @@ header nav ul li a { text-decoration: none; color: inherit; }
 .content { display: flex; align-items: center; gap: 8%; padding: 100px 0; }
 section:nth-of-type(even) .content { flex-direction: row-reverse; }
 .content .img, .content .text { width: 50%; }
+/* --- 6. Products Page (強制2列・崩れ防止版) --- */
+.page-title { text-align: center; font-size: 2.5rem; margin: 60px 0 10px; }
+.page-intro { text-align: center; max-width: 800px; margin: 0 auto 60px; color: #696969; }
 
-/* ★ここがトップページの画像を小さくする設定です */
-#products .container .img img { 
-  width: 150px !important; /* 強制的に小さくします */
-  height: auto;
-  margin: 0 auto; 
+/* 親要素：ここを grid にして、強制的に横2列の道を作ります */
+.product-grid {
+  display: grid !important;
+  grid-template-columns: 1fr; /* 基本は1列 */
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
 }
 
-.img img { width: 100%; display: block; height: auto; }
-.section-bg-gray { background-color: #f2f2f2; }
-.section-bg-white { background-color: #ffffff; }
-.section-bg-beige { background-color: #f9f5ed; }
-.section-title { font-size: 1.8rem; margin-bottom: 5px; color: #333; }
-.section-title-en { display: block; color: #a0a0a0; font-style: italic; margin-bottom: 30px; }
-
-/* --- 6. Products Page (統合修正版) --- */
-.page-title { text-align: center; font-size: 2.5rem; margin: 60px 0 10px; }
-.page-intro { text-align: center; max-width: 800px; margin: 0 auto 60px; color: #696969; line-height: 1.8; }
-
-.product-grid {
-  display: flex !important; /* 強制適用 */
-  flex-wrap: wrap !important;
-  gap: 40px 4%;
-  margin-bottom: 80px;
+/* PC（768px以上）の時は、絶対に横2列にする */
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr 1fr !important; /* ここで2列を強制 */
+  }
 }
 
 .product-item {
-  width: 48%; /* PCで2列 */
   background: #fff;
   border: 1px solid #eee;
   padding: 20px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
-/* 画像枠を揃えて崩れを防ぐ */
+/* 画像の高さと形を固定（これで2段目がズレるのを防ぎます） */
 .product-img {
   width: 100%;
-  height: 300px; /* PCでの高さを固定 */
-  margin-bottom: 20px;
+  aspect-ratio: 1 / 1; /* 正方形にする */
   background-color: #f9f9f9;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,18 +72,11 @@ section:nth-of-type(even) .content { flex-direction: row-reverse; }
 .product-img img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
-}
-
-/* スマホ用の微調整 */
-@media (max-width: 767px) {
-  .product-item { width: 100% !important; } 
-  .product-img { height: 250px; } /* スマホでは少し高さを抑える */
+  object-fit: contain; /* 画像を切らずに収める */
 }
 
 .product-detail { text-align: center; }
 .back-to-home { text-align: center; margin: 50px 0 100px; }
 .btn { display: inline-block; padding: 10px 30px; background-color: #696969; color: #fff; text-decoration: none; }
-
 /* --- 7. Footer --- */
 #footer { text-align: center; padding: 60px 0; background: #fff; border-top: 1px solid #eee; }
