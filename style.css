@@ -253,3 +253,47 @@ section:nth-of-type(even) .content {
     margin-top: 30px;
   }
 }
+
+/* --- 5. Content Layout (画像のサイズ調整) --- */
+
+.content .img {
+  width: 35%; /* 横幅を45%から35%に縮小 */
+  max-width: 300px; /* PCで見ても大きくなりすぎない上限を設定 */
+  background-color: #fff;
+  border: 1px solid #eee;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  margin: 0 auto; /* 中央に配置 */
+}
+
+.content .img img {
+  width: 60%; /* 箱の中での画像の占有率を下げて、余白を広くする */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+/* マウスを乗せた時に少しだけ動く演出（Productsと統一） */
+.content .img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* テキスト部分の幅を少し広げてバランスをとる */
+.content .text {
+  width: 55%; 
+}
+
+/* スマホ版では画像が小さくなりすぎないよう調整 */
+@media screen and (max-width: 767px) {
+  .content .img {
+    width: 60%; /* スマホでは画面の60%くらいのサイズで見せる */
+    max-width: 250px;
+    margin-bottom: 30px;
+  }
+  .content .text {
+    width: 100%;
+  }
+}
