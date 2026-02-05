@@ -209,207 +209,117 @@ section:nth-of-type(even) .content {
 
 #footer { text-align: center; padding: 60px 0; background: #fff; border-top: 1px solid #eee; }
 
-/* --- 6. Products Page (真っ白な正方形スタイル) --- */
-
-.product-item {
-  background: transparent;
-  border: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  cursor: pointer;
-}
-
-/* 画像を囲む白い正方形 */
-.product-img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-color: #ffffff; /* ★ここを真っ白に変更 */
-  margin-bottom: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  
-  /* 境界をはっきりさせるためのごく薄い線と影 */
-  border: 1px solid #eeeeee; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-  
-  /* 浮き上がるアニメーションの設定 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* ホバー時に白い正方形を浮かび上がらせる */
-.product-item:hover .product-img {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* 影を強くして浮遊感を出す */
-}
-
-.product-img img {
-  width: 85%; /* 白い枠の中での画像の大きさ */
-  height: 85%;
-  object-fit: contain;
-  transition: transform 0.5s ease;
-}
-
-/* ホバー時に画像も少しズーム */
-.product-item:hover .product-img img {
-  transform: scale(1.05);
-}
-
-/* テキスト部分を正方形に合わせる */
-.product-detail {
-  text-align: center;
-}
-/* テキスト部分の調整 */
-.product-detail {
-  text-align: center;
-}
-
-.product-detail h3 {
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.product-detail p {
-  font-size: 0.85rem;
-  color: #888;
-  line-height: 1.6;
-}
-
-/* テキスト部分の調整 */
-.product-detail {
-  text-align: center;
-  padding-top: 10px;
-}
-
-.product-detail h3 {
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.product-detail p {
-  font-size: 0.85rem;
-  color: #888;
-  line-height: 1.6;
-}
-
-/* スマホ対応 */
-@media (max-width: 768px) {
-  .header-inner { padding: 20px; }
-  .content { flex-direction: column !important; text-align: center; }
-  .content .img, .content .text { width: 100%; margin-bottom: 30px; }
-  .mainvisual-text { font-size: 30px; letter-spacing: 0.3em; }
-}
-
-/* --- 商品アイテムの浮かび上がる演出 --- */
-.product-item {
-  background: #fff;
-  border: 1px solid #eee;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  
-  /* ↓ 動きを滑らかにする設定 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-/* マウスを乗せた時（ホバー）の動き */
-.product-item:hover {
-  transform: translateY(-10px); /* 上に10px浮かび上がる */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* 影をつけて浮遊感を出す */
-}
-
-/* 画像自体のズーム演出 */
-.product-img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-color: #f9f9f9;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* 枠からはみ出た画像は見せない */
-}
-
-.product-img img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  
-  /* ↓ 画像の変化も滑らかにする */
-  transition: transform 0.5s ease;
-}
-
-/* マウスを乗せた時に画像を少しだけ大きくする */
-.product-item:hover .product-img img {
-  transform: scale(1.1); /* 1.1倍に拡大 */
-}
-
-html {
-  scroll-behavior: smooth; /* スムーズスクロールを有効化 */
-  scroll-padding-top: 90px; /* ヘッダーに被らないように調整 */
-}
-
-/* --- Concept画像のサイズと演出の統一 --- */
-
-/* Conceptセクションの画像の外枠をProductsと合わせる */
-#concept .img {
-  width: 100%;
-  max-width: 400px; /* 大きすぎないように制限 */
+/* --- 5. 詳細ページ（work.html）用 --- */
+/* 基本（スマホ・全デバイス共通の中央寄せ設定） */
+.detail-container {
+  max-width: 1000px;
   margin: 0 auto;
-  aspect-ratio: 1 / 1; /* 正方形に固定 */
-  overflow: hidden;
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  /* 浮かび上がる演出の準備 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  padding: 60px 20px;
+  text-align: center;
 }
-
-/* Concept画像そのものの設定 */
-#concept .img img {
+.main-visual-img {
+  max-width: 300px;
+  margin: 0 auto 40px;
+  display: block;
+}
+.goods-grid {
+  display: flex;
+  flex-direction: column; /* スマホでは縦並び */
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.goods-item {
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* 画像を枠内に綺麗に収める */
-  padding: 40px; /* ロゴの周りに少し余白を作る（お好みで調整） */
-  transition: transform 0.5s ease;
+  max-width: 550px; /* 写真のサイズ：一回り大きく */
+  text-align: center;
+}
+.image-wrap {
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.image-wrap img { transition: transform 0.4s ease; width: 100%; display: block; }
+.goods-item:hover img { transform: scale(1.05); }
+.item-caption { font-weight: bold; color: #4682b4; }
+.custom-btn {
+  display: inline-block;
+  background-color: #4682b4;
+  color: #fff !important;
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 30px;
 }
 
-/* マウスを乗せた時の浮かび上がる動き（Productsと統一） */
-#concept .img:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
+/* --- 6. レスポンシブ調整（PC版：768px以上） --- */
+@media screen and (min-width: 768px) {
+  /* トップページ用 */
+  .content { flex-direction: row; justify-content: center; gap: 60px; }
+  .content:nth-of-type(even) { flex-direction: row-reverse; }
+  .content .text, .content .img { width: 45%; }
+  
+  .skills-grid { flex-direction: row; justify-content: space-between; }
+  .skill-item { width: 31%; }
 
-#concept .img:hover img {
-  transform: scale(1.1); /* 画像のズーム */
-}
-
-/* --- トップページのレイアウト微調整（中央寄せ） --- */
-#concept .content {
-  display: flex;
-  align-items: center;
-  gap: 8%;
-}
-
-@media (max-width: 768px) {
-  #concept .content {
-    flex-direction: column;
-    text-align: center;
+  /* ★詳細ページ用★ */
+  .goods-grid { 
+    display:flex:
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 40px; 
   }
-  #concept .img {
-    margin-bottom: 30px;
+  .goods-item { 
+    width: 45%；
+    max-width: none; 
+  }
+}
+
+/* --- 8. スマホ版調整 --- */
+@media screen and (max-width: 767px) {
+  /* ヘッダー全体の余白を調整 */
+  #header {
+    flex-direction: column;
+    padding: 30px 0 0 0; /* 
+    gap: 30px; 
+  }
+
+  /* ロゴのサイズ調整 */
+  .site-title img {
+    width: 80px;
+  }
+
+  /* ナビゲーション（メニュー）の設定 */
+  #header ul {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px; /* 
+  }
+
+  #header li {
+    margin: 0 10px;
+  }
+
+ 
+  /* 詳細ページ全体のレイアウト */
+.detail-container {
+  padding-top: 100px；
+}
+
+.goods-grid {
+  display: flex;
+  flex-direction: row; 
+  gap: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .goods-grid {
+    flex-direction: row；
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .goods-item {
+    width: calc(50% - 20px) !important; /* 2列 */
   }
 }
