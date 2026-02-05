@@ -165,37 +165,78 @@ section:nth-of-type(even) .content {
 .section-title { font-size: 2rem; margin-bottom: 5px; color: #333; }
 .section-title-en { display: block; color: #a0a0a0; font-style: italic; margin-bottom: 30px; }
 
-/* --- 6. Products Page (2列グリッド) --- */
+/* --- 6. Products Page (箱だけ浮遊スタイル) --- */
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  margin: 40px 0 80px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px 30px; /* 縦の隙間を広めにとる */
+  margin: 40px 0 100px;
 }
 
+/* 各アイテムの親枠（ここでは浮かせない） */
 .product-item {
-  background: #fff;
-  border: 1px solid #eee;
-  padding: 20px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
+/* ★この「箱（画像部分）」だけを浮かせる */
 .product-img {
   width: 100%;
-  aspect-ratio: 1/1;
-  background: #f9f9f9;
-  margin-bottom: 20px;
+  aspect-ratio: 1 / 1;
+  background-color: #ffffff; /* 箱の色を白に */
+  border: 1px solid #eee;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  margin-bottom: 20px; /* テキストとの距離 */
+  
+  /* 影と動きの準備 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* マウスを乗せた時、.product-img（箱）だけが動く設定 */
+.product-item:hover .product-img {
+  transform: translateY(-12px); /* 箱が上に浮く */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* 影を強くする */
+}
+
+/* 箱の中の画像 */
 .product-img img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
+  transition: transform 0.5s ease;
 }
 
+/* ホバー時に画像も少しズーム */
+.product-item:hover .product-img img {
+  transform: scale(1.05);
+}
+
+/* ★テキスト部分は浮かさず、その場に固定 */
+.product-detail {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.product-detail h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+}
+
+.product-detail p {
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.6;
+}
 /* --- 7. Common Parts --- */
 .btn {
   display: inline-block;
