@@ -87,9 +87,9 @@ header nav ul li a {
   width: 100%;
   height: 60vh;
   min-height: 400px;
-  background-image: url("tlogomarupink.svg");
+  background-image: url("jyuujilogo.svg");
   background-repeat: repeat;
-  background-size: 200px;
+  background-size: 100px;
   background-position: center;
   display: flex;
   justify-content: center;
