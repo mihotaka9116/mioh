@@ -254,7 +254,7 @@ section:nth-of-type(even) .content {
   }
 }
 
-/* --- 5. Content Layout (メインページ用：中央寄せ・サイズ調整) --- */
+/* --- 5. Content Layout (メインページ用：シンプル画像スタイル) --- */
 
 .container {
   max-width: 1100px;
@@ -266,50 +266,44 @@ section:nth-of-type(even) .content {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8%; /* 画像とテキストの距離 */
+  gap: 8%;
   padding: 80px 0;
 }
 
-/* 偶数番目のセクションは画像とテキストを入れ替える */
+/* 左右交互の並び */
 section:nth-of-type(even) .content {
   flex-direction: row-reverse;
 }
 
-/* ★画像ボックスのサイズ指定（ここを小さくしました） */
+/* ★画像エリア：枠や影、浮き上がりをすべて削除 */
 .content .img {
-  width: 25%;        /* 全体の25%の幅に（以前は45%） */
-  max-width: 240px;   /* 最大でも240px以上にならないように */
-  aspect-ratio: 1 / 1;
-  background-color: #fff;
-  border: 1px solid #eee;
+  width: 25%;         /* 画像の表示幅 */
+  max-width: 200px;    /* 大きくなりすぎない上限 */
   display: flex;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
+  align-items: center;
 }
 
-/* ★箱の中の画像のサイズ（さらに余白を確保） */
 .content .img img {
-  width: 65%;
+  width: 100%;        /* 親の25%幅いっぱいに画像を表示 */
   height: auto;
-  object-fit: contain;
+  display: block;
+  /* 浮き上がり設定（transformなど）はここには書きません */
 }
 
-/* マウスホバー時の演出 */
-.content .img:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* テキスト部分の幅を調整 */
+/* ★テキストエリア */
 .content .text {
-  width: 50%;
+  width: 55%;
   text-align: left;
 }
 
-/* スマホ版調整 */
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* スマホ対応 */
 @media screen and (max-width: 767px) {
   .content {
     flex-direction: column !important;
@@ -317,7 +311,7 @@ section:nth-of-type(even) .content {
     padding: 50px 0;
   }
   .content .img {
-    width: 50%; /* スマホでは小さすぎないよう50%に */
+    width: 40%;
     margin-bottom: 30px;
   }
   .content .text {
