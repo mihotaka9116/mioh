@@ -216,3 +216,8 @@ section:nth-of-type(even) .content {
   .content .img, .content .text { width: 100%; margin-bottom: 30px; }
   .mainvisual-text { font-size: 30px; letter-spacing: 0.3em; }
 }
+
+html {
+  scroll-behavior: smooth; /* スムーズスクロールを有効化 */
+  scroll-padding-top: 90px; /* ヘッダーに被らないように調整 */
+}
