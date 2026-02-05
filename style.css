@@ -254,46 +254,74 @@ section:nth-of-type(even) .content {
   }
 }
 
-/* --- 5. Content Layout (画像のサイズ調整) --- */
+/* --- 5. Content Layout (メインページ用：中央寄せ・サイズ調整) --- */
 
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8%; /* 画像とテキストの距離 */
+  padding: 80px 0;
+}
+
+/* 偶数番目のセクションは画像とテキストを入れ替える */
+section:nth-of-type(even) .content {
+  flex-direction: row-reverse;
+}
+
+/* ★画像ボックスのサイズ指定（ここを小さくしました） */
 .content .img {
-  width: 35%; /* 横幅を45%から35%に縮小 */
-  max-width: 300px; /* PCで見ても大きくなりすぎない上限を設定 */
+  width: 25%;        /* 全体の25%の幅に（以前は45%） */
+  max-width: 240px;   /* 最大でも240px以上にならないように */
+  aspect-ratio: 1 / 1;
   background-color: #fff;
   border: 1px solid #eee;
-  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  margin: 0 auto; /* 中央に配置 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
+/* ★箱の中の画像のサイズ（さらに余白を確保） */
 .content .img img {
-  width: 60%; /* 箱の中での画像の占有率を下げて、余白を広くする */
+  width: 65%;
   height: auto;
-  transition: transform 0.3s ease;
+  object-fit: contain;
 }
 
-/* マウスを乗せた時に少しだけ動く演出（Productsと統一） */
+/* マウスホバー時の演出 */
 .content .img:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* テキスト部分の幅を少し広げてバランスをとる */
+/* テキスト部分の幅を調整 */
 .content .text {
-  width: 55%; 
+  width: 50%;
+  text-align: left;
 }
 
-/* スマホ版では画像が小さくなりすぎないよう調整 */
+/* スマホ版調整 */
 @media screen and (max-width: 767px) {
+  .content {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 50px 0;
+  }
   .content .img {
-    width: 60%; /* スマホでは画面の60%くらいのサイズで見せる */
-    max-width: 250px;
+    width: 50%; /* スマホでは小さすぎないよう50%に */
     margin-bottom: 30px;
   }
   .content .text {
     width: 100%;
+    text-align: center;
   }
 }
