@@ -190,3 +190,66 @@ header nav ul li a {
   header nav ul { gap: 15px; margin-top: 15px; }
   .product-grid { grid-template-columns: 1fr; }
 }
+
+/* --- 5. Content Layout (中央寄せ & 左右交互) --- */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto; /* これで全体を中央に */
+  padding: 0 40px;
+}
+
+.content {
+  display: flex;
+  align-items: center; /* 垂直方向の中央 */
+  justify-content: center; /* 水平方向の中央 */
+  gap: 10%; /* 画像とテキストの間の距離 */
+  padding: 100px 0;
+}
+
+/* 偶数番目のセクションは画像とテキストを入れ替える */
+section:nth-of-type(even) .content {
+  flex-direction: row-reverse;
+}
+
+.content .img, 
+.content .text {
+  width: 45%; /* それぞれの横幅 */
+}
+
+.content .text {
+  text-align: left; /* テキスト自体は左揃え（お好みで center に） */
+}
+
+/* 画像の設定（Conceptと同じ白いボックスにする場合） */
+.content .img {
+  background-color: #fff;
+  border: 1px solid #eee;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.content .img img {
+  width: 70%;
+  height: auto;
+}
+
+/* スマホ対応（縦並びに戻す） */
+@media screen and (max-width: 767px) {
+  .content {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 60px 0;
+  }
+  .content .img, 
+  .content .text {
+    width: 100%;
+  }
+  .content .text {
+    text-align: center;
+    margin-top: 30px;
+  }
+}
