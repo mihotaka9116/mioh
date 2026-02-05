@@ -209,55 +209,59 @@ section:nth-of-type(even) .content {
 
 #footer { text-align: center; padding: 60px 0; background: #fff; border-top: 1px solid #eee; }
 
-/* --- 6. Products Page (白い正方形カードスタイル) --- */
+/* --- 6. Products Page (真っ白な正方形スタイル) --- */
 
 .product-item {
-  background: transparent; /* アイテム全体は透明 */
+  background: transparent;
   border: none;
   padding: 0;
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
-/* 白い正方形の画像ボックス */
+/* 画像を囲む白い正方形 */
 .product-img {
   width: 100%;
-  aspect-ratio: 1 / 1;    /* 正方形を維持 */
-  background-color: #fff; /* 背景は白 */
-  border: 1px solid #f0f0f0; /* ごく薄い境界線（これがないと背景と同化するため） */
+  aspect-ratio: 1 / 1;
+  background-color: #ffffff; /* ★ここを真っ白に変更 */
   margin-bottom: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   
-  /* 最初はごく薄い影をつけておきます */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  /* 境界をはっきりさせるためのごく薄い線と影 */
+  border: 1px solid #eeeeee; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  
+  /* 浮き上がるアニメーションの設定 */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* マウスを乗せた時の「浮かび上がる」演出 */
+/* ホバー時に白い正方形を浮かび上がらせる */
 .product-item:hover .product-img {
-  transform: translateY(-8px); /* 正方形が上に持ち上がる */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* 影が広がり、浮いた感じを出す */
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* 影を強くして浮遊感を出す */
 }
 
-/* 中の画像の設定 */
 .product-img img {
-  width: 80%;           /* 正方形の中に少し余白を作る */
-  height: 80%;
+  width: 85%; /* 白い枠の中での画像の大きさ */
+  height: 85%;
   object-fit: contain;
   transition: transform 0.5s ease;
 }
 
-/* マウスを乗せた時に画像も少しズームさせる */
+/* ホバー時に画像も少しズーム */
 .product-item:hover .product-img img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
+/* テキスト部分を正方形に合わせる */
+.product-detail {
+  text-align: center;
+}
 /* テキスト部分の調整 */
 .product-detail {
   text-align: center;
