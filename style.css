@@ -323,3 +323,41 @@ section:nth-of-type(even) .content {
     width: calc(50% - 20px) !important; /* 2列 */
   }
 }
+
+/* --- 6. Products Page (薄い影と浮かび上がるエフェクト) --- */
+
+.product-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* ★最初から入っている薄い影 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  
+  /* 動きを滑らかにする設定 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* マウスを重ねた（ホバー）時の動き */
+.product-item:hover .product-img {
+  transform: translateY(-10px); /* 上に浮かぶ */
+  
+  /* ★浮かんだ時に影を濃く、広くする */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.product-img img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.product-item:hover .product-img img {
+  transform: scale(1.05); /* 画像も少しズーム */
+}
