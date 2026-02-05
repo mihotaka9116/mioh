@@ -209,13 +209,12 @@ section:nth-of-type(even) .content {
 
 #footer { text-align: center; padding: 60px 0; background: #fff; border-top: 1px solid #eee; }
 
-/* --- 6. Products Page (背景ボックス スタイル) --- */
+/* --- 6. Products Page (白い正方形カードスタイル) --- */
 
-/* 外側の枠線を消し、背景を透明にしてスッキリさせます */
 .product-item {
-  background: transparent; /* 背景白を解除 */
-  border: none;            /* 枠線を消去 */
-  padding: 0;             /* 余白をリセット */
+  background: transparent; /* アイテム全体は透明 */
+  border: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -223,41 +222,58 @@ section:nth-of-type(even) .content {
   cursor: pointer;
 }
 
-/* マウスを乗せた時にアイテム全体が浮き上がる動き */
-.product-item:hover {
-  transform: translateY(-10px);
-}
-
-/* 画像の背景ボックス（グレーの正方形） */
+/* 白い正方形の画像ボックス */
 .product-img {
   width: 100%;
   aspect-ratio: 1 / 1;    /* 正方形を維持 */
-  background-color: #f6f6f6; /* 薄いグレーのボックス */
+  background-color: #fff; /* 背景は白 */
+  border: 1px solid #f0f0f0; /* ごく薄い境界線（これがないと背景と同化するため） */
   margin-bottom: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* ボックスに少し丸みが欲しい場合はここを追加： border-radius: 4px; */
-  transition: background-color 0.3s ease;
+  
+  /* 最初はごく薄い影をつけておきます */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* マウスを乗せた時にボックスの色を少し濃くする演出（お好みで） */
+/* マウスを乗せた時の「浮かび上がる」演出 */
 .product-item:hover .product-img {
-  background-color: #f0f0f0;
+  transform: translateY(-8px); /* 正方形が上に持ち上がる */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* 影が広がり、浮いた感じを出す */
 }
 
-/* ボックスの中の画像設定 */
+/* 中の画像の設定 */
 .product-img img {
-  width: 75%;           /* ボックスに対して少し小さめに配置して余白を作る */
-  height: 75%;
-  object-fit: contain;  /* 画像をボックス内に収める */
+  width: 80%;           /* 正方形の中に少し余白を作る */
+  height: 80%;
+  object-fit: contain;
   transition: transform 0.5s ease;
 }
 
-/* マウスを乗せた時に画像がズームする */
+/* マウスを乗せた時に画像も少しズームさせる */
 .product-item:hover .product-img img {
-  transform: scale(1.1);
+  transform: scale(1.08);
+}
+
+/* テキスト部分の調整 */
+.product-detail {
+  text-align: center;
+}
+
+.product-detail h3 {
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.product-detail p {
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.6;
 }
 
 /* テキスト部分の調整 */
