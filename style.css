@@ -470,3 +470,48 @@ section:nth-of-type(even) .content {
   gap: 60px 40px;
   margin: 60px 0 100px;
 }
+
+/* --- スマホでの横揺れ・左寄りの解消 --- */
+@media screen and (max-width: 767px) {
+  /* 全体の「箱」が画面を突き抜けないようにする */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding: 0 20px; /* 左右の余白を少し狭くして余裕を持たせる */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 文字の右側にはみ出す「字間」の影響を消す */
+  .mainvisual-text, 
+  .site-title a, 
+  .page-title,
+  .mask-text {
+    letter-spacing: 0.2em; /* スマホでは字間を少し狭くする */
+    padding-left: 0;       /* 補正用のパディングをリセット */
+    margin-right: -0.2em;  /* 最後の文字の右側の空白を打ち消す */
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 商品グリッドの調整 */
+  .product-grid {
+    grid-template-columns: 1fr; /* 必ず1列にする */
+    gap: 40px 0;
+    margin: 40px 0;
+    width: 100%;
+  }
+
+  .product-item {
+    width: 100%;
+    flex: 0 0 100%; /* flex指定が残っている場合の対策 */
+  }
+
+  /* コンテンツ内の画像とテキストの隙間を調整 */
+  .content {
+    gap: 30px; 
+    width: 100%;
+  }
+}
