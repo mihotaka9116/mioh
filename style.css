@@ -454,3 +454,19 @@ section:nth-of-type(even) .content {
   margin-top: 0;      /* ← 文字の上の余白を消して、よりロゴに近づけます */
   /* その他の設定... */
 }
+
+/* 中の写真（ここを修正） */
+.product-img img {
+  width: 100%;      /* 80% から 100% に変更 */
+  height: 100%;     /* 80% から 100% に変更 */
+  object-fit: cover; /* 枠いっぱいに綺麗に収める（商品が切れる場合は contain に） */
+  transition: transform 0.5s ease;
+}
+
+.product-grid {
+  display: grid;
+  /* 300px を 400px などに上げると、1行あたりの数が減り、1つが大きくなります */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+  gap: 60px 40px;
+  margin: 60px 0 100px;
+}
