@@ -443,3 +443,14 @@ section:nth-of-type(even) .content {
   0% { opacity: 0; transform: translateY(50px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+.main-logo {
+  width: 120px;       /* ← ロゴを小さくしたければ数字を減らし、大きくしたければ増やします */
+  margin-bottom: 5px; /* ← 文字との距離を詰めたい場合はここを「0」や「-10px」にします */
+  /* その他の設定... */
+}
+
+.mainvisual-text {
+  margin-top: 0;      /* ← 文字の上の余白を消して、よりロゴに近づけます */
+  /* その他の設定... */
+}
