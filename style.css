@@ -338,3 +338,12 @@ section:nth-of-type(even) .content {
 }
   background-color: #fafafa;
 }
+
+/* プロダクトページの画像サイズを調整 */
+.product-item img {
+    width: 100%;      /* 親要素の幅いっぱいに広げる */
+    max-width: 600px; /* 最大サイズを制限（お好みのサイズに変更してください） */
+    height: auto;     /* 縦横比を維持 */
+    display: block;
+    margin: 0 auto 20px; /* 中央寄せと下の余白 */
+}
